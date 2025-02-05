@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Prix Finance</string>
     <string name="txt_dashBoard">Dashboard</string>
+    <string name="txt_changeLanguage">Change Language</string>
     <string name="txt_notifications">Notifications</string>
     <string name="txt_budgetManagement">Budget Management</string>
     <string name="txt_transactions">Transactions</string>
@@ -44,6 +45,9 @@
     <string name="txt_btnCreate">Create</string>
     <string name="txt_btnBack">Back</string>
     <string name="txt_btnView">View</string>
+    <string name="txt_btnAcceptChanges">Accept Changes</string>
+    <string name="txt_btnUpdateProfile">Update Profile</string>
+    <string name="txt_btnClearData">Clear My Data</string>
     <string name="txt_btnDelete">Delete</string>
     <string name="txt_btnUpdate">Update</string>
     <string name="txt_budgetName">Birthday</string>

@@ -28,6 +28,12 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         prefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
 
+        // Initialize the views first
+        setContentView(R.layout.activity_splash_screen)
+        btnGetStarted = findViewById(R.id.btnGetStarted)
+        languageSpinner = findViewById(R.id.language_spinner)
+
+        // Apply saved language if available
         val savedLanguage = loadSavedLanguage()
         if (!savedLanguage.isNullOrEmpty()) {
             setAppLocale(savedLanguage)
@@ -35,6 +41,9 @@ class SplashScreen : AppCompatActivity() {
 
         enableEdgeToEdge()
         setContentView(R.layout.activity_splash_screen)
+
+        // Ensure that the UI is updated to the correct language
+        updateUIAfterLanguageChange()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -56,6 +65,20 @@ class SplashScreen : AppCompatActivity() {
             listOf("English", "IsiXhosa", "Afrikaans")
         )
 
+        // Set the selected language in the spinner based on the saved language
+        val selectedLanguage = savedLanguage?.let {
+            when (it) {
+                "en" -> 0
+                "xh" -> 1
+                "af" -> 2
+                else -> 0
+            }
+
+        // Default to English if no language is saved
+        } ?: 0
+
+        languageSpinner.setSelection(selectedLanguage)
+
         languageSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -63,11 +86,13 @@ class SplashScreen : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                when (position) {
-                    0 -> changeLanguage("en");
-                    1 -> changeLanguage("xh");
-                    2 -> changeLanguage("af-RZA")
+                val languageCode = when (position) {
+                    0 -> "en"
+                    1 -> "xh"
+                    2 -> "af"
+                    else -> "en"
                 }
+                changeLanguage(languageCode)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -86,18 +111,14 @@ class SplashScreen : AppCompatActivity() {
         setAppLocale(languageCode)
         saveLanguage(languageCode)
 
-        // Instead of recreating the activity, update the UI manually
+        // updating the UI after changing the language
         updateUIAfterLanguageChange()
     }
 
     private fun updateUIAfterLanguageChange() {
-        // Update UI elements here
         btnGetStarted.text = getString(R.string.txt_btnGetStarted)
-        languageSpinner.adapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_spinner_item,
-            listOf(("English"), ("IsiXhosa"), ("afrikaans"))
-        )
+
+        //incase i need to update any more ui elements, below is where i do it
     }
 
     private fun saveLanguage(languageCode: String) {

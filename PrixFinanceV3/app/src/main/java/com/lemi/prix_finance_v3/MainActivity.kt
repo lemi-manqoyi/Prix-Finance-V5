@@ -24,10 +24,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var displayActiveBudgets : RecyclerView
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navView: NavigationView
+    private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var searchBudgets: SearchView
     private lateinit var adapter: ItemAdapter
-    private lateinit var bottomNavigationView: BottomNavigationView
-
     object Global {
         var userId: Int? = null
     }
@@ -53,7 +52,6 @@ class MainActivity : AppCompatActivity() {
         searchBudgets = findViewById(R.id.searchbar)
         bottomNavigationView = findViewById(R.id.bottomNav)
         navView = findViewById(R.id.navView_dashboard)
-//        addNewBudget = findViewById(R.id.btnAddNewBudget) // Add this line
 
 
         // Setup toolbar

@@ -87,7 +87,7 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="@string/txt_totalBudget"
                     android:textColor="@color/white_blue"
@@ -127,8 +127,9 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
+                    android:layout_marginBottom="20dp"
                     android:textAlignment="center"
                     android:text="@string/txt_btnBudgetOption"
                     android:textColor="@color/black"
@@ -138,8 +139,8 @@
                 <TextView
                     android:id="@+id/btnAddIncome"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:layout_marginTop="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
                     android:background="@drawable/bg_addbudget"
                     android:text="@string/txt_addIncome"
                     android:textColor="@color/white_blue"
@@ -152,7 +153,7 @@
                 <TextView
                     android:id="@+id/btnAddNewBudget"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:background="@drawable/bg_main"
                     android:text="@string/txt_addNewBudget"
@@ -165,7 +166,7 @@
                 <TextView
                     android:id="@+id/btnEditBudget"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:background="@drawable/bg_main"
                     android:text="@string/txt_EditBudget"
@@ -179,7 +180,7 @@
                 <TextView
                     android:id="@+id/btnDeleteBudget"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:background="@drawable/bg_deletebudget"
                     android:text="@string/txt_deleteBudget"
